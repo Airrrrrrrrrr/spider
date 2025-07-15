@@ -1,0 +1,45 @@
+void __f35(int param0, int param1, int param2) {
+    int v0 = __g0 - 96;
+
+    __g0 -= 96;
+    *(int*)(v0 + 88) = param1;
+    *(int*)(v0 + 92) = param2;
+    __f291(v0 + 32);
+    int v1 = __f320(&ptr_aSrc_lib_rs, *(int*)(v0 + 36), *(int*)(v0 + 32));
+    *(int*)(v0 + 44) = v1;
+    __f266(v0 + 44, v0 + 24);
+    int v2 = __f318(&ptr_aSrc_lib_rs2, 0, "src/lib.rs", *(int*)(v0 + 28), *(int*)(v0 + 24));
+    *(int*)(v0 + 48) = v2;
+	//    call $web_sys::features::gen_Document::Document::body::h20cbbcf6ce16f98b
+    __f267(v0 + 48, v0 + 16);
+	//    call $core::option::Option<T>::expect::h75f7a5b6bb53fc96
+    int v3 = __f319(&ptr_aSrc_lib_rs3, 0, "src/lib.rs", *(int*)(v0 + 20), *(int*)(v0 + 16));
+    *(int*)(v0 + 52) = v3;
+	//    call $func521
+    __f521(param2, param1, v0 + 56);
+	//    call $func521
+    __f521(16, 0x100a64, v0 + 72);
+	//    call $func247
+    __f247(v0 + 72, v0 + 8);
+	//    call $func487
+    __f487(*(int*)(v0 + 12), *(int*)(v0 + 8), v0 + 56);
+	//    call $alloc::string::String::as_bytes::h53849742ea31bc9f
+    __f416(v0 + 56, v0);
+	//    call $match_twenty::sign::MD5::hash::hd3cc2e6ebf304f6f
+	// 1048504 1114192 31
+    __f13(*(int*)(v0 + 4), *(int*)v0, param0);
+	//    call $core::ptr::drop_in_place<alloc::string::String>::h1a752c630726971c
+    __f607(v0 + 72);
+	//    call $core::ptr::drop_in_place<alloc::string::String>::h1a752c630726971c
+    __f607(v0 + 56);
+	//    call $core::ptr::drop_in_place<web_sys::features::gen_HtmlElement::HtmlElement>::h4e521b86e3b41168
+    __f599(v0 + 52);
+	//    call $core::ptr::drop_in_place<web_sys::features::gen_Document::Document>::h3ddc74debdae6464
+    __f598(v0 + 48);
+	//    call $core::ptr::drop_in_place<web_sys::features::gen_Window::Window>::hbb32e061b5062bd7
+    __f600(v0 + 44);
+    __g0 = v0 + 96;
+}
+
+
+md5加盐值 D#uqGdcw41pWeNXm

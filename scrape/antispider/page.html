@@ -1,0 +1,531 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.ico"><title>Scrape | Book</title><link href="/css/chunk-685f7b56.57619a2e.css" rel="prefetch"><link href="/css/chunk-cd85151c.019ee97e.css" rel="prefetch"><link href="/js/chunk-685f7b56.ea5c9c03.js" rel="prefetch"><link href="/js/chunk-cd85151c.539dc1c6.js" rel="prefetch"><link href="/css/app.ea9d802a.css" rel="preload" as="style"><link href="/js/app.e33314dd.js" rel="preload" as="script"><link href="/js/chunk-vendors.32590f12.js" rel="preload" as="script"><link href="/css/app.ea9d802a.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/chunk-cd85151c.019ee97e.css"><script charset="utf-8" src="/js/chunk-cd85151c.539dc1c6.js"></script><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 270px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 50% auto !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  word-break: break-all;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #007bff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+</style></head><body><noscript><strong>We're sorry but portal doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"><div data-v-74e8b908="" class="el-row" id="header"><div data-v-74e8b908="" class="container el-col el-col-18 el-col-offset-3"><div data-v-74e8b908="" class="el-row"><div data-v-74e8b908="" class="logo el-col el-col-4"><a data-v-74e8b908="" href="/" class="router-link-active"><img data-v-74e8b908="" src="/img/logo.a508a8f0.png" class="logo-image"><span data-v-74e8b908="" class="logo-title">Scrape</span></a></div></div></div></div><div data-v-7f1a77ef="" id="index"><div data-v-7f1a77ef="" class="m-t el-row"><div data-v-7f1a77ef="" class="el-col el-col-18 el-col-offset-3"><!----><div data-v-7f1a77ef="" class="el-row" style="margin-left: -7.5px; margin-right: -7.5px;"><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7062628" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7034934.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7062628" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 256px;">
+                      文
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      子
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 80px;">
+                      -
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 240px;">
+                      港
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 160px;">
+                      郁
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 144px;">
+                      .
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      讲
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 288px;">
+                      -
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 320px;">
+                      二
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      东
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 208px;">
+                      .
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 112px;">
+                      爱
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 96px;">
+                      张
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 192px;">
+                      夫
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 272px;">
+                      学
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 304px;">
+                      卷
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 224px;">
+                      香
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      许
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 176px;">
+                      达
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 128px;">
+                      玲
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 64px;">
+                      稿
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">
+            许子东,许子东讲稿</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7060186" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7656327.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7060186" class=""><h3 data-v-7f1a77ef="" class="name whole">GOTH断掌事件</h3></a><p data-v-7f1a77ef="" class="authors">
+                [日]
+            乙一,乐读文库</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7059909" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7035923.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7059909" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      南
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      音
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 80px;">
+                      ）
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      （
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                       
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 64px;">
+                      上
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">
+            笛安,“龙城”系列</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7058564" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7019904.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7058564" class=""><h3 data-v-7f1a77ef="" class="name whole">第一辩手5·星河的泪痕</h3></a><p data-v-7f1a77ef="" class="authors">双子星罗</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7058461" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s28798515.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7058461" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      手
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      绢
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      上
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      的
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 64px;">
+                      花
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 80px;">
+                      田
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">(日)安房直子</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7058064" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7051564.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7058064" class=""><h3 data-v-7f1a77ef="" class="name whole">銀之匙 01</h3></a><p data-v-7f1a77ef="" class="authors">
+                [日]
+            荒川弘,銀之匙</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7057385" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s8857547.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7057385" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      听
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 64px;">
+                      歌
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      幾
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      唱
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      米
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">几米 绘</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7057187" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s8859312.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7057187" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      庵
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      忆
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      陶
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      梦
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">张岱</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7056685" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s8913032.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7056685" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      以
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      黑
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      天
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      后
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">
+                [日]
+            村上春树,新经典文化,
+            施小炜,新经典文库·村上春树作品</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7056649" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7034174.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7056649" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      歧
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      路
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">
+            脉脉,
+            渥丹</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7055441" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s8488837.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7055441" class=""><h3 data-v-7f1a77ef="" class="name whole">罗马人的故事1</h3></a><p data-v-7f1a77ef="" class="authors">盐野七生</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7053013" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7046464.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7053013" class=""><h3 data-v-7f1a77ef="" class="name whole">魔法科高校の劣等生〈3〉</h3></a><p data-v-7f1a77ef="" class="authors">佐島 勤</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7047308" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s8857032.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7047308" class=""><h3 data-v-7f1a77ef="" class="name whole">查理九世10·最后的古寺神佛</h3></a><p data-v-7f1a77ef="" class="authors">
+            雷欧幻像,查理九世</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7047307" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7652904.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7047307" class=""><h3 data-v-7f1a77ef="" class="name whole">查理九世12·失落的海底城</h3></a><p data-v-7f1a77ef="" class="authors">
+            雷欧幻像,查理九世</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7047305" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s7652905.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7047305" class=""><h3 data-v-7f1a77ef="" class="name whole">查理九世11·冥府之船</h3></a><p data-v-7f1a77ef="" class="authors">
+            雷欧幻像,查理九世</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7015296" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s8486741.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7015296" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      见
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      遇
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      美
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 64px;">
+                      你
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      最
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">
+            顾西爵</p></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7008029" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s33456646.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7008029" class=""><h3 data-v-7f1a77ef="" class="name whole">指环王1-3合集(3DVD9院线版)</h3></a><!----></div></div></div></div></div><div data-v-7f1a77ef="" class="el-col el-col-4" style="padding-left: 7.5px; padding-right: 7.5px;"><div data-v-7f1a77ef="" class="el-card item m-b is-hover-shadow" style="height: 365.82px;"><!----><div class="el-card__body"><div data-v-7f1a77ef="" class="top el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7007774" class=""><img data-v-7f1a77ef="" src="https://cdn.scrape.center/book/s9012766.jpg" class="cover" style="height: 261.3px;"></a></div></div><div data-v-7f1a77ef="" class="bottom p-t-none el-row"><div data-v-7f1a77ef="" class="el-col el-col-24"><a data-v-7f1a77ef="" href="/detail/7007774" class=""><h3 data-v-7f1a77ef="" class="m-b-sm name"><span data-v-7f1a77ef="" class="char" style="left: 64px;">
+                      就
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 96px;">
+                      有
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 48px;">
+                      义
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 0px;">
+                      没
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 16px;">
+                      有
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 32px;">
+                      意
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 128px;">
+                      摆
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 80px;">
+                      没
+                    </span><span data-v-7f1a77ef="" class="char" style="left: 112px;">
+                      摇
+                    </span></h3></a><p data-v-7f1a77ef="" class="authors">
+                [日]
+            村上春树,
+            林少华,村上春树随笔系列</p></div></div></div></div></div></div></div></div><div data-v-7f1a77ef="" class="el-row"><div data-v-7f1a77ef="" class="el-col el-col-10 el-col-offset-11"><div data-v-7f1a77ef="" class="pagination m-v-lg"><div data-v-7f1a77ef="" class="el-pagination is-background"><span class="el-pagination__total">共 9040 条</span><button type="button" class="btn-prev"><i class="el-icon el-icon-arrow-left"></i></button><ul class="el-pager"><li class="number">1</li><!----><li class="number active">2</li><li class="number">3</li><li class="number">4</li><li class="number">5</li><li class="number">6</li><li class="el-icon more btn-quicknext el-icon-more"></li><li class="number">503</li></ul><button type="button" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button></div></div></div></div></div></div><script src="/js/chunk-vendors.32590f12.js"></script><script src="/js/app.e33314dd.js"></script></body><div id="immersive-translate-popup" style="all: initial"></div></html>
